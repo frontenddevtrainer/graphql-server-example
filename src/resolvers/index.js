@@ -1,6 +1,24 @@
 import axios from "axios";
 
 const resolvers = {
+  Mutation: {
+    addUser: async (context, args) => {
+      const { user } = args;
+      try {
+        const response = await axios(
+          "https://jsonplaceholder.typicode.com/users",
+          {
+            method: "POST",
+            body: user,
+          }
+        );
+        return response.data;
+      } catch (error) {
+        return null;
+      }
+    },
+  },
+
   Query: {
     books: () => [
       { title: "React Learning", author: "Developer" },

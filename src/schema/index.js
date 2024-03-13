@@ -1,5 +1,13 @@
 const typeDefs = `#graphql
 
+  input UserInput {
+    name: String
+    username: String
+    email: String
+    phone: String
+    website: String
+  }
+
   type Company {
     name: String
     catchPhrase: String
@@ -35,10 +43,19 @@ const typeDefs = `#graphql
     author: String
   }
 
+  type AddUserResponse {
+    id: Int
+  }
+
   type Query {
     books: [Book],
     users: [User],
     user(id: String): User
+  }
+
+
+  type Mutation {
+    addUser(user: UserInput) : AddUserResponse
   }
 
 `;
