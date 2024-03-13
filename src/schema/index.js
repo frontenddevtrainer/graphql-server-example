@@ -37,7 +37,8 @@ const typeDefs = `#graphql
 
   type Query {
     books: [Book],
-    users: [User]
+    users: [User],
+    user(id: String): User
   }
 
 `;

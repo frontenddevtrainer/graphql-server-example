@@ -16,6 +16,18 @@ const resolvers = {
         return null;
       }
     },
+    user: async (context, args) => {
+      const { id } = args;
+
+      try {
+        const response = await axios(
+          `https://jsonplaceholder.typicode.com/users/${id}`
+        );
+        return response.data;
+      } catch (error) {
+        return null;
+      }
+    },
   },
 };
 
